@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación 15 Años - Responsiva</title>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === ESTILOS GLOBALES === */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fdfafb;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .fondo-imagen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .zona-animacion {
+            height: 300vh; 
+            position: relative;
+        }
+
+        .pantalla-fija {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .instruccion {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            text-align: center;
+            color: #b58150;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            z-index: 100;
+            animation: flotar 2s infinite ease-in-out;
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* === EL SOBRE Y LA CARTA === */
+        .contenedor-sobre {
+            position: relative;
+            width: 340px;
+            height: 220px;
+            perspective: 1200px;
+            /* La transición la manejaremos con JS, esto es por seguridad */
+            transform-origin: center;
+        }
+
+        /* AJUSTES PARA CELULARES (RESPONSIVE) */
+        @media (max-width: 480px) {
+            .contenedor-sobre { transform: scale(0.85); }
+        }
+        @media (max-width: 360px) {
+            .contenedor-sobre { transform: scale(0.75); }
+        }
+
+        .sobre {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .parte-trasera {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #e6c5cb;
+            border-radius: 5px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .frente-laterales {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            overflow: hidden;
+            border-radius: 0 0 5px 5px;
+        }
+        .frente-laterales::before, .frente-laterales::after {
+            content: ''; position: absolute; width: 0; height: 0; border-style: solid;
+        }
+        .frente-laterales::before {
+            border-width: 110px 0 110px 170px;
+            border-color: transparent transparent transparent #f0d5da; left: 0;
+        }
+        .frente-laterales::after {
+            border-width: 110px 170px 110px 0;
+            border-color: transparent #f0d5da transparent transparent; right: 0;
+        }
+
+        .frente-abajo {
+            position: absolute;
+            width: 0; height: 0; border-style: solid;
+            border-width: 0 170px 140px 170px;
+            border-color: transparent transparent #e8ced3 transparent;
+            bottom: 0; z-index: 3; border-radius: 0 0 5px 5px;
+        }
+
+        .solapa {
+            position: absolute;
+            top: 0; left: 0; width: 0; height: 0; border-style: solid;
+            border-width: 130px 170px 0 170px;
+            border-color: #dfbec4 transparent transparent transparent;
+            transform-origin: top;
+            z-index: 4;
+        }
+
+        .carta {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            width: 310px;
+            height: 200px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 2;
+            border: 2px solid #f8e5e8;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            will-change: transform;
+        }
+
+        .carta h1 { font-family: 'Great Vibes', cursive; color: #c9a050; margin: 0; font-size: 3.5rem; line-height: 1; }
+        .carta h2 { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 3px; margin: 10px 0; }
+        .carta p { font-size: 0.85rem; color: #555; margin: 5px 0; line-height: 1.4; }
+
+        /* === SECCIONES INFORMATIVAS === */
+        .contenido-informativo {
+            position: relative;
+            background: white;
+            padding: 60px 20px;
+            z-index: 10;
+            border-radius: 40px 40px 0 0;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .seccion {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 30px 20px;
+            background: #fffafa;
+            border: 1px solid #f0d5da;
+            border-radius: 15px;
+        }
+
+        .seccion h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #c9a050;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .boton {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background-color: #dfbec4;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+        }
+        .boton:hover { background-color: #c9a050; }
+        /* === BOTÓN DE MÚSICA FLOTANTE === */
+.boton-musica {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #dfbec4; /* Rosa del sobre */
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 1000; /* Siempre por encima de todo */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.boton-musica:hover {
+    transform: scale(1.05);
+    background-color: #c9a050; /* Dorado al pasar el mouse */
+}
+    </style>
+</head>
+<body>
+<!-- Reproductor oculto (sin la palabra "controls") -->
+<audio id="musica-fondo" loop autoplay>
+    <source src="musiquita.mp3" type="audio/mpeg">
+</audio>
+
+<button id="btn-musica" class="boton-musica">
+    🎵 Reproducir Música
+</button>
+    <div class="fondo-imagen"></div>
+
+    <!-- ZONA DE ANIMACIÓN -->
+    <div class="zona-animacion" id="zona-animacion">
+        <div class="pantalla-fija">
+            <div class="instruccion" id="instruccion">↓ Desliza hacia abajo ↓</div>
+
+            <div class="contenedor-sobre" id="contenedor-sobre">
+                <div class="sobre" id="sobre-elementos">
+                    <div class="parte-trasera"></div>
+                    
+                    <div class="carta" id="carta">
+                        <h2>Mis Quince</h2>
+                        <h1>Valeria</h1>
+                        <p>Te invito a celebrar el momento más mágico de mi vida.</p>
+                    </div>
+
+                    <div class="partes-frontales" id="partes-frontales">
+                        <div class="frente-laterales"></div>
+                        <div class="frente-abajo"></div>
+                    </div>
+                    <div class="solapa" id="solapa"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZONA INFORMATIVA -->
+    <div class="contenido-informativo">
+        <div class="seccion">
+            <h3>Cuándo y Dónde</h3>
+            <p><strong>Sábado 25 de Mayo de 2024</strong></p>
+            <p>Misa: 6:00 PM - Parroquia San José</p>
+            <p>Recepción: 8:00 PM - Salón Diamante Grand</p>
+            <a href="#" class="boton">Ver Mapa</a>
+        </div>
+        
+        <div class="seccion">
+            <h3>Código de Vestimenta</h3>
+            <p><strong>Formal / Etiqueta</strong></p>
+            <p style="color:#c9a050;">*Por favor, reservar el color Rosa Gold para la quinceañera*</p>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const zonaAnimacion = document.getElementById('zona-animacion');
+            const solapa = document.getElementById('solapa');
+            const carta = document.getElementById('carta');
+            const instruccion = document.getElementById('instruccion');
+            const partesFrontales = document.getElementById('partes-frontales');
+            
+            // Evaluamos si estamos en celular para que la carta no crezca demasiado y se salga
+            const esCelular = window.innerWidth <= 480;
+            const escalaMaxima = esCelular ? 1.05 : 1.4; // Crece menos en móvil
+
+            const scrollDistancia = window.scrollY;
+            const maxScrollZona = zonaAnimacion.offsetHeight - window.innerHeight;
+            
+            let progreso = scrollDistancia / maxScrollZona;
+            if (progreso < 0) progreso = 0;
+            if (progreso > 1) progreso = 1;
+
+            // FASE 1: Abrir la solapa (0% al 25%)
+            let progresoSolapa = Math.min(progreso / 0.25, 1);
+            solapa.style.transform = `rotateX(${progresoSolapa * 180}deg)`;
+            solapa.style.zIndex = progresoSolapa > 0.5 ? 1 : 4;
+
+            // FASE 2: Animación de la Carta (25% al 80%)
+            let translateY = 0;
+            let scale = 1;
+
+            if (progreso > 0.25) {
+                if (progreso <= 0.5) {
+                    // 2A. Sube para salir del sobre
+                    let p = (progreso - 0.25) / 0.25; 
+                    translateY = p * -170; // Sube 170px
+                    scale = 1 + (p * 0.1); 
+                } else {
+                    // 2B. El sobre desaparece y la carta REGRESA AL CENTRO (0px)
+                    let p = Math.min((progreso - 0.5) / 0.3, 1); 
+                    translateY = -170 + (p * 170); // Va de -170px a 0px
+                    scale = 1.1 + (p * (escalaMaxima - 1.1)); 
+                }
+                
+                carta.style.transform = `translateY(${translateY}px) scale(${scale})`;
+                carta.style.zIndex = progreso > 0.35 ? 10 : 2;
+            } else {
+                carta.style.transform = `translateY(0) scale(1)`;
+                carta.style.zIndex = 2;
+            }
+
+            // FASE 3: Desvanecer el sobre (50% al 70%)
+            if (progreso > 0.5) {
+                let progresoDesvanecer = Math.min((progreso - 0.5) / 0.2, 1);
+                partesFrontales.style.opacity = 1 - progresoDesvanecer;
+                solapa.style.opacity = 1 - progresoDesvanecer;
+                document.querySelector('.parte-trasera').style.opacity = 1 - progresoDesvanecer;
+            } else {
+                partesFrontales.style.opacity = 1;
+                solapa.style.opacity = 1;
+                document.querySelector('.parte-trasera').style.opacity = 1;
+            }
+
+            instruccion.style.opacity = Math.max(1 - (progreso * 10), 0);
+        });
+        // === CONTROL DE MÚSICA ===
+const musica = document.getElementById('musica-fondo');
+const btnMusica = document.getElementById('btn-musica');
+let interaccionUsuario = false;
+
+// Función para intentar reproducir la música
+const iniciarMusica = () => {
+    if (!interaccionUsuario) {
+        musica.play().then(() => {
+            // Si el navegador lo permite, cambiamos el botón
+            btnMusica.innerHTML = '⏸️ Pausar Música';
+            interaccionUsuario = true;
+            // Quitamos el evento de scroll para que no intente reproducir a cada rato
+            window.removeEventListener('scroll', iniciarMusica);
+        }).catch(error => {
+            // Si el navegador lo bloquea, no hacemos nada y esperamos a que le den clic al botón
+            console.log("Esperando interacción del usuario para reproducir audio.");
+        });
+    }
+};
+
+// Truco: Intentar reproducir en el primer scroll
+window.addEventListener('scroll', iniciarMusica, { once: true });
+
+// Control manual: Qué pasa cuando le dan clic al botón
+btnMusica.addEventListener('click', () => {
+    if (musica.paused) {
+        musica.play();
+        btnMusica.innerHTML = '⏸️ Pausar Música';
+        interaccionUsuario = true; // Confirmamos que ya interactuó
+    } else {
+        musica.pause();
+        btnMusica.innerHTML = '🎵 Reproducir Música';
+    }
+});
+    </script>
+</body>
+</html>
