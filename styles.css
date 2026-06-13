@@ -1,0 +1,507 @@
+/* === ESTILOS GLOBALES === */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom, #f8f4f9 0%, #ede7f6 100%);
+    color: #333;
+    overflow-x: hidden;
+}
+
+.fondo-imagen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    z-index: -1;
+}
+
+.zona-animacion {
+    height: 300vh; 
+    position: relative;
+}
+
+.pantalla-fija {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.instruccion {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    text-align: center;
+    color: #bca0dc;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    z-index: 100;
+    animation: flotar 2s infinite ease-in-out;
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* === EL SOBRE Y LA CARTA === */
+.contenedor-sobre {
+    position: relative;
+    width: 340px;
+    height: 220px;
+    perspective: 1200px;
+    transform-origin: center;
+}
+
+/* AJUSTES PARA CELULARES (RESPONSIVE) */
+@media (max-width: 480px) {
+    .contenedor-sobre { transform: scale(0.85); }
+}
+@media (max-width: 360px) {
+    .contenedor-sobre { transform: scale(0.75); }
+}
+
+.sobre {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* PALETA DE COLORES LILA PARA EL SOBRE */
+.parte-trasera {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #c3b1e1;
+    border-radius: 5px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.frente-laterales {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    overflow: hidden;
+    border-radius: 0 0 5px 5px;
+}
+.frente-laterales::before, .frente-laterales::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+.frente-laterales::before {
+    border-width: 110px 0 110px 170px;
+    border-color: transparent transparent transparent #d1c4e9;
+    left: 0;
+}
+.frente-laterales::after {
+    border-width: 110px 170px 110px 0;
+    border-color: transparent #d1c4e9 transparent transparent;
+    right: 0;
+}
+
+.frente-abajo {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 170px 140px 170px;
+    border-color: transparent transparent #cbbce6 transparent;
+    bottom: 0;
+    z-index: 3;
+    border-radius: 0 0 5px 5px;
+}
+
+.solapa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 130px 170px 0 170px;
+    border-color: #bca0dc transparent transparent transparent;
+    transform-origin: top;
+    z-index: 4;
+}
+
+.carta {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    width: 310px;
+    height: 200px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 2;
+    border: 2px solid #ede7f6;
+    box-shadow: 0 2px 10px rgba(188, 160, 220, 0.2);
+    will-change: transform;
+    transition: transform 0.5s ease;
+}
+
+.carta h1 {
+    font-family: 'Great Vibes', cursive;
+    color: #bca0dc;
+    margin: 0;
+    font-size: 3rem;
+    line-height: 1;
+}
+.carta h2 {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 10px 0;
+}
+.carta p {
+    font-size: 0.85rem;
+    color: #555;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+/* === SECCIONES INFORMATIVAS === */
+.contenido-informativo {
+    position: relative;
+    background: white;
+    padding: 60px 20px;
+    z-index: 10;
+    border-radius: 40px 40px 0 0;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.seccion {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px 20px;
+    background: #faf8fc;
+    border: 1px solid #ede7f6;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(188, 160, 220, 0.15);
+}
+
+.seccion h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #bca0dc;
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.padres h3::before { content: "👨‍👩‍👧"; margin-right: 10px; }
+.fecha h3::before { content: "📅"; margin-right: 10px; }
+.vestimenta h3::before { content: "👗"; margin-right: 10px; }
+.regalos h3::before { content: "🎁"; margin-right: 10px; }
+
+.boton {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background-color: #bca0dc;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: background 0.3s ease;
+}
+.boton:hover { background-color: #a88bc4; }
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+    .seccion {
+        padding: 20px 15px;
+        margin-bottom: 30px;
+    }
+    .seccion h3 {
+        font-size: 2rem;
+    }
+}
+
+/* === BOTÓN DE MÚSICA FLOTANTE === */
+.boton-musica {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #bca0dc;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.boton-musica:hover {
+    transform: scale(1.05);
+    background-color: #a88bc4;
+}
+
+.texto-destacado {
+    margin-top: 20px;
+    color: #bca0dc;
+    font-weight: 600;
+}
+
+/* === SECCIÓN HORARIOS (PROGRAMA) === */
+
+/* Icono para el título de la sección */
+.horarios h3::before { 
+    content: "🕰️"; 
+    margin-right: 10px; 
+}
+
+/* Contenedor de la lista */
+.lista-cronograma {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: left; /* Alineación a la izquierda para facilitar la lectura */
+}
+
+/* Estilo de cada elemento (tarjetitas) */
+.lista-cronograma li {
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border-left: 5px solid #bca0dc; /* Borde lila lateral para darle estilo de timeline */
+    box-shadow: 0 3px 10px rgba(188, 160, 220, 0.1);
+    font-size: 0.95rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto sutil al pasar el mouse o tocar en móviles */
+.lista-cronograma li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(188, 160, 220, 0.2);
+}
+
+/* Resaltar la hora */
+.lista-cronograma li strong {
+    color: #bca0dc;
+    font-weight: 600;
+    font-size: 1.05rem;
+    min-width: 85px; /* Mantiene la alineación del texto separada de la hora */
+    display: inline-block;
+    margin-right: 15px;
+    border-right: 2px solid #ede7f6; /* Pequeña línea divisoria entre la hora y el evento */
+    padding-right: 15px;
+}
+
+/* Ajuste responsivo específico para la lista en celulares */
+@media (max-width: 480px) {
+    .lista-cronograma li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 15px;
+    }
+    
+    .lista-cronograma li strong {
+        border-right: none;
+        border-bottom: 2px solid #ede7f6;
+        padding-right: 0;
+        padding-bottom: 5px;
+        margin-right: 0;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+}
+
+
+/* === NUEVO DISEÑO: BUSCADOR Y TICKET VIP === */
+.confirmacion-vip {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffffff 0%, #faf8fc 100%);
+}
+
+.confirmacion-vip h3::before { 
+    content: "💌"; 
+    margin-right: 10px; 
+}
+
+/* Buscador estilo píldora */
+.buscador-pill {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 350px;
+    margin: 25px auto;
+    background: #ffffff;
+    border-radius: 40px;
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(188, 160, 220, 0.2);
+    border: 1px solid #ede7f6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buscador-pill:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(188, 160, 220, 0.3);
+    border-color: #bca0dc;
+}
+
+#input-busqueda {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    outline: none;
+    text-align: center;
+}
+
+.btn-lupa {
+    background: #bca0dc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-lupa:hover {
+    background: #a88bc4;
+}
+
+/* Estilo del Boleto (Ticket) */
+.ticket-resultado {
+    display: none;
+    width: 90%;
+    max-width: 320px;
+    margin: 30px auto 0;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    overflow: hidden;
+    animation: flotarBoleto 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.ticket-header {
+    background: #bca0dc;
+    color: white;
+    padding: 15px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.ticket-body {
+    padding: 25px 20px;
+    position: relative;
+}
+
+.numero-mesa {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #bca0dc;
+    margin: 5px 0;
+    line-height: 1;
+}
+
+.etiqueta-mesa {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #888;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Efecto de línea punteada troquelada */
+.ticket-divider {
+    border-top: 2px dashed #ede7f6;
+    margin: 20px 0;
+    position: relative;
+}
+
+/* Círculos laterales para simular el corte del boleto */
+.ticket-divider::before, .ticket-divider::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+    background: #faf8fc; /* Debe coincidir con el color de fondo de la sección */
+    border-radius: 50%;
+}
+.ticket-divider::before { left: -30px; }
+.ticket-divider::after { right: -30px; }
+
+/* Botón de WhatsApp Premium */
+.btn-whatsapp-vip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn-whatsapp-vip:hover {
+    background: #1ebe5d;
+    transform: translateY(-2px);
+}
+
+.mensaje-error {
+    color: #e57373;
+    font-weight: 600;
+    padding: 20px;
+}
+
+@keyframes flotarBoleto {
+    from { opacity: 0; transform: translateY(30px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}

@@ -3,244 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación 15 Años - Responsiva</title>
-    <!-- Fuentes de Google -->
+    <title>Invitación 15 Años - Rachell Alexia</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* === ESTILOS GLOBALES === */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #fdfafb;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .fondo-imagen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.3;
-            z-index: -1;
-        }
-
-        .zona-animacion {
-            height: 300vh; 
-            position: relative;
-        }
-
-        .pantalla-fija {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .instruccion {
-            position: absolute;
-            top: 40px;
-            width: 100%;
-            text-align: center;
-            color: #b58150;
-            font-weight: 600;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            z-index: 100;
-            animation: flotar 2s infinite ease-in-out;
-        }
-
-        @keyframes flotar {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* === EL SOBRE Y LA CARTA === */
-        .contenedor-sobre {
-            position: relative;
-            width: 340px;
-            height: 220px;
-            perspective: 1200px;
-            /* La transición la manejaremos con JS, esto es por seguridad */
-            transform-origin: center;
-        }
-
-        /* AJUSTES PARA CELULARES (RESPONSIVE) */
-        @media (max-width: 480px) {
-            .contenedor-sobre { transform: scale(0.85); }
-        }
-        @media (max-width: 360px) {
-            .contenedor-sobre { transform: scale(0.75); }
-        }
-
-        .sobre {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .parte-trasera {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: #e6c5cb;
-            border-radius: 5px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .frente-laterales {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 3;
-            overflow: hidden;
-            border-radius: 0 0 5px 5px;
-        }
-        .frente-laterales::before, .frente-laterales::after {
-            content: ''; position: absolute; width: 0; height: 0; border-style: solid;
-        }
-        .frente-laterales::before {
-            border-width: 110px 0 110px 170px;
-            border-color: transparent transparent transparent #f0d5da; left: 0;
-        }
-        .frente-laterales::after {
-            border-width: 110px 170px 110px 0;
-            border-color: transparent #f0d5da transparent transparent; right: 0;
-        }
-
-        .frente-abajo {
-            position: absolute;
-            width: 0; height: 0; border-style: solid;
-            border-width: 0 170px 140px 170px;
-            border-color: transparent transparent #e8ced3 transparent;
-            bottom: 0; z-index: 3; border-radius: 0 0 5px 5px;
-        }
-
-        .solapa {
-            position: absolute;
-            top: 0; left: 0; width: 0; height: 0; border-style: solid;
-            border-width: 130px 170px 0 170px;
-            border-color: #dfbec4 transparent transparent transparent;
-            transform-origin: top;
-            z-index: 4;
-        }
-
-        .carta {
-            position: absolute;
-            top: 10px;
-            left: 15px;
-            width: 310px;
-            height: 200px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-            z-index: 2;
-            border: 2px solid #f8e5e8;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            will-change: transform;
-        }
-
-        .carta h1 { font-family: 'Great Vibes', cursive; color: #c9a050; margin: 0; font-size: 3.5rem; line-height: 1; }
-        .carta h2 { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 3px; margin: 10px 0; }
-        .carta p { font-size: 0.85rem; color: #555; margin: 5px 0; line-height: 1.4; }
-
-        /* === SECCIONES INFORMATIVAS === */
-        .contenido-informativo {
-            position: relative;
-            background: white;
-            padding: 60px 20px;
-            z-index: 10;
-            border-radius: 40px 40px 0 0;
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .seccion {
-            text-align: center;
-            margin-bottom: 50px;
-            padding: 30px 20px;
-            background: #fffafa;
-            border: 1px solid #f0d5da;
-            border-radius: 15px;
-        }
-
-        .seccion h3 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
-            color: #c9a050;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-
-        .boton {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 25px;
-            background-color: #dfbec4;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: background 0.3s ease;
-        }
-        .boton:hover { background-color: #c9a050; }
-        /* === BOTÓN DE MÚSICA FLOTANTE === */
-.boton-musica {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #dfbec4; /* Rosa del sobre */
-    color: white;
-    border: none;
-    border-radius: 30px;
-    padding: 12px 20px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    z-index: 1000; /* Siempre por encima de todo */
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.boton-musica:hover {
-    transform: scale(1.05);
-    background-color: #c9a050; /* Dorado al pasar el mouse */
-}
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Reproductor oculto (sin la palabra "controls") -->
-<audio id="musica-fondo" loop autoplay>
-    <source src="musiquita.mp3" type="audio/mpeg">
-</audio>
 
-<button id="btn-musica" class="boton-musica">
-    🎵 Reproducir Música
-</button>
     <div class="fondo-imagen"></div>
 
-    <!-- ZONA DE ANIMACIÓN -->
     <div class="zona-animacion" id="zona-animacion">
         <div class="pantalla-fija">
             <div class="instruccion" id="instruccion">↓ Desliza hacia abajo ↓</div>
@@ -251,8 +21,8 @@
                     
                     <div class="carta" id="carta">
                         <h2>Mis Quince</h2>
-                        <h1>Valeria</h1>
-                        <p>Te invito a celebrar el momento más mágico de mi vida.</p>
+                        <h1>Rachell Alexia</h1>
+                        <p>Con la bendición de Dios y el amor de mi familia, te invito a celebrar este día tan especial.</p>
                     </div>
 
                     <div class="partes-frontales" id="partes-frontales">
@@ -265,120 +35,177 @@
         </div>
     </div>
 
-    <!-- ZONA INFORMATIVA -->
     <div class="contenido-informativo">
-        <div class="seccion">
+        
+        <div class="seccion padres">
+            <h3>Padres y Padrinos</h3>
+            <p><strong>Mis Padres:</strong><br>
+            Ariadna Contreras Reyes<br>
+            Fernando Jesús Hernández García</p>
+            
+            <p class="texto-destacado"><strong>Mis Padrinos:</strong><br>
+            Josafat Galán Balderas<br>
+            Maria Irma Reyes Nogueira</p>
+        </div>
+
+        <div class="seccion fecha">
             <h3>Cuándo y Dónde</h3>
-            <p><strong>Sábado 25 de Mayo de 2024</strong></p>
-            <p>Misa: 6:00 PM - Parroquia San José</p>
-            <p>Recepción: 8:00 PM - Salón Diamante Grand</p>
+            <p><strong>18 de Julio del 2026</strong></p>
+            <p>Misa: 06:30 PM - Capilla Santa Teresita del Niño Jesús <br> Recepción: 07:30 PM - [Escribe aquí la dirección del salón]</p> 
             <a href="#" class="boton">Ver Mapa</a>
         </div>
+
+        <div class="seccion horarios">
+            <h3>Programa del Evento</h3>
+            <ul class="lista-cronograma">
+                <li><strong>06:30 PM</strong> - Celebración Eucarística</li>
+                <li><strong>07:30 PM</strong> - Recepción de Invitados</li>
+                <li><strong>08:00 PM</strong> - Presentación</li>
+                <li><strong>08:15 PM</strong> - Vals de Entrada, Vals Principal y Vals Familiar</li>
+                <li><strong>08:50 PM</strong> - Brindis</li>
+                <li><strong>09:00 PM</strong> - Cena (Ambientación Instrumental)</li>
+                <li><strong>10:00 PM</strong> - Baile Sorpresa</li>
+                <li><strong>10:15 PM</strong> - Presentación de Grupo Musical y Apertura de Pista</li>
+                <li><strong>11:00 PM</strong> - Pastel / Entrega de Regalos</li>
+                <li><strong>11:30 PM</strong> - Fin de la 1ª Tanda del Grupo / Música con DJ</li>
+                <li><strong>12:00 AM</strong> - Pirotecnia</li>
+                <li><strong>12:30 AM</strong> - Tornafiesta</li>
+                <li><strong>01:00 AM</strong> - 2ª Tanda de Grupo Musical (hasta 02:30 AM)</li>
+                <li><strong>04:00 AM</strong> - Fin de la Fiesta</li>
+            </ul>
+        </div>
         
-        <div class="seccion">
+        <div class="seccion vestimenta">
             <h3>Código de Vestimenta</h3>
-            <p><strong>Formal / Etiqueta</strong></p>
-            <p style="color:#c9a050;">*Por favor, reservar el color Rosa Gold para la quinceañera*</p>
+            <p><strong>Vestimenta Formal</strong></p>
+            <p class="texto-destacado">*Por favor, reservar el color Lila para la quinceañera*</p>
+        </div>
+        
+        <div class="seccion regalos">
+            <h3>Mesa de Regalos</h3>
+            <p>Tu presencia es mi mejor regalo, pero si deseas tener un detalle conmigo habrá Lluvia de Sobres.</p>
+        </div>
+
+        <div class="seccion confirmacion-vip">
+            <h3>Pase de Invitado</h3>
+            <p>Ingresa tu nombre o el de tu familia para descubrir tu mesa asignada.</p>
+            
+            <div class="buscador-pill">
+                <input type="text" id="input-busqueda" placeholder="Ej: Familia García..." autocomplete="off">
+                <button id="btn-buscar" class="btn-lupa">Buscar</button>
+            </div>
+
+            <div id="resultado-busqueda" class="ticket-resultado"></div>
         </div>
     </div>
 
+    <audio id="musica-fondo" loop>
+        <source src="musiquita.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="btn-musica" class="boton-musica">
+        🎵 Reproducir Música
+    </button>
+
+    
+
+    </body>
+    <script src="script.js"></script>
     <script>
-        window.addEventListener('scroll', () => {
-            const zonaAnimacion = document.getElementById('zona-animacion');
-            const solapa = document.getElementById('solapa');
-            const carta = document.getElementById('carta');
-            const instruccion = document.getElementById('instruccion');
-            const partesFrontales = document.getElementById('partes-frontales');
+    // 1. Configura el número de teléfono donde recibirás las confirmaciones (con código de país, sin el signo +)
+    const numeroWhatsApp = "525500000000"; // Cambia esto por tu número
+
+    // 2. Estructura de datos: Array de objetos con la información de los invitados
+    const listaInvitados = [
+        { nombre: "Lupe", mesa: 2, adultos: 8, ninos: 1, jovenes: 0 },
+        { nombre: "Anilu", mesa: 7, adultos: 2, ninos: 1, jovenes: 0 },
+        { nombre: "Ana", mesa: 7, adultos: 3, ninos: 0, jovenes: 0 },
+        { nombre: "Mama Rosita", mesa: 7, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Tia Vero", mesa: 7, adultos: 1, ninos: 0, jovenes: 1 },
+        { nombre: "Heidy", mesa: 2, adultos: 3, ninos: 1, jovenes: 0 },
+        { nombre: "Eliza", mesa: 12, adultos: 4, ninos: 1, jovenes: 1 },
+        { nombre: "Braulio", mesa: 12, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Abuelita Luz", mesa: 5, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Marina", mesa: 5, adultos: 4, ninos: 1, jovenes: 2 },
+        { nombre: "Tia Santa", mesa: 8, adultos: 2, ninos: 1, jovenes: 0 },
+        { nombre: "Rene", mesa: 8, adultos: 3, ninos: 0, jovenes: 2 },
+        { nombre: "Compadre", mesa: 8, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Axel", mesa: 4, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Alexis", mesa: 4, adultos: 2, ninos: 1, jovenes: 0 },
+        { nombre: "Mily", mesa: 4, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Ara C.", mesa: 6, adultos: 3, ninos: 0, jovenes: 0 },
+        { nombre: "Jose C.", mesa: 6, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Ana C.", mesa: 6, adultos: 3, ninos: 0, jovenes: 0 },
+        { nombre: "Alma C.", mesa: 6, adultos: 4, ninos: 0, jovenes: 0 },
+        { nombre: "Tia Lucina", mesa: 3, adultos: 6, ninos: 0, jovenes: 0 },
+        { nombre: "Anabel", mesa: 3, adultos: 4, ninos: 0, jovenes: 0 },
+        { nombre: "Ahijada", mesa: 1, adultos: 2, ninos: 1, jovenes: 1 },
+        { nombre: "Tio Nacho", mesa: 1, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Tio Naty", mesa: 1, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Doña Pato", mesa: 1, adultos: 1, ninos: 0, jovenes: 0 },
+        { nombre: "Doña Elvira", mesa: 1, adultos: 1, ninos: 0, jovenes: 0 },
+        { nombre: "Celso", mesa: 9, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Abogado", mesa: 9, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Dentista", mesa: 9, adultos: 1, ninos: 0, jovenes: 0 },
+        { nombre: "Freddy", mesa: 9, adultos: 1, ninos: 0, jovenes: 0 },
+        { nombre: "Uriel", mesa: 9, adultos: 1, ninos: 0, jovenes: 0 },
+        { nombre: "Fernando Calixto", mesa: 9, adultos: 1, ninos: 0, jovenes: 0 },
+        { nombre: "Poncho", mesa: 9, adultos: 1, ninos: 0, jovenes: 0 },
+        // Perico y Selene no tienen mesa asignada en la lista original, se definen como "Pendiente"
+        { nombre: "Perico", mesa: "Pendiente", adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Selene", mesa: "Pendiente", adultos: 1, ninos: 0, jovenes: 0 }
+    ];
+
+    // Función para quitar acentos y pasar a minúsculas (mejora la búsqueda)
+    const normalizarTexto = (texto) => {
+        return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+    };
+
+    const inputBusqueda = document.getElementById('input-busqueda');
+    const btnBuscar = document.getElementById('btn-buscar');
+    const divResultado = document.getElementById('resultado-busqueda');
+
+    btnBuscar.addEventListener('click', () => {
+        const query = normalizarTexto(inputBusqueda.value);
+        divResultado.style.display = 'none'; // Ocultar resultados previos
+        
+        if (query === "") return;
+
+        // Buscar coincidencia exacta o parcial
+        const invitadoEncontrado = listaInvitados.find(inv => normalizarTexto(inv.nombre).includes(query));
+
+        if (invitadoEncontrado) {
+            // Calcular total de pases sumando adultos, niños y jóvenes
+            const totalPases = invitadoEncontrado.adultos + invitadoEncontrado.ninos + invitadoEncontrado.jovenes;
             
-            // Evaluamos si estamos en celular para que la carta no crezca demasiado y se salga
-            const esCelular = window.innerWidth <= 480;
-            const escalaMaxima = esCelular ? 1.05 : 1.4; // Crece menos en móvil
+            // Construir el mensaje para WhatsApp
+            const mensajeWa = `¡Hola! Confirmo mi asistencia a los XV de Rachell Alexia.%0A%0A*Nombre:* ${invitadoEncontrado.nombre}%0A*Pases Confirmados:* ${totalPases}%0A*Mesa:* ${invitadoEncontrado.mesa}`;
+            const linkWhatsapp = `https://wa.me/${numeroWhatsApp}?text=${mensajeWa}`;
 
-            const scrollDistancia = window.scrollY;
-            const maxScrollZona = zonaAnimacion.offsetHeight - window.innerHeight;
-            
-            let progreso = scrollDistancia / maxScrollZona;
-            if (progreso < 0) progreso = 0;
-            if (progreso > 1) progreso = 1;
+            // Inyectar el HTML en el contenedor de resultados
+            divResultado.innerHTML = `
+                <h4>¡Hola, ${invitadoEncontrado.nombre}!</h4>
+                <p>Nos hace muy felices contar con tu presencia.</p>
+                <p>Tienes <strong>${totalPases} pases</strong> asignados 
+                   <br><small>(${invitadoEncontrado.adultos} Adultos | ${invitadoEncontrado.ninos} Niños | ${invitadoEncontrado.jovenes} Jóvenes)</small>
+                </p>
+                <span class="mesa-destacada">Mesa #${invitadoEncontrado.mesa}</span>
+                <a href="${linkWhatsapp}" target="_blank" class="boton btn-whatsapp">📱 Confirmar Asistencia</a>
+            `;
+            divResultado.style.display = 'block';
+        } else {
+            divResultado.innerHTML = `
+                <p class="mensaje-error" style="display:block;">No encontramos tu nombre en la lista. Por favor, intenta escribiéndolo de forma diferente o contacta a la familia.</p>
+            `;
+            divResultado.style.display = 'block';
+        }
+    });
 
-            // FASE 1: Abrir la solapa (0% al 25%)
-            let progresoSolapa = Math.min(progreso / 0.25, 1);
-            solapa.style.transform = `rotateX(${progresoSolapa * 180}deg)`;
-            solapa.style.zIndex = progresoSolapa > 0.5 ? 1 : 4;
-
-            // FASE 2: Animación de la Carta (25% al 80%)
-            let translateY = 0;
-            let scale = 1;
-
-            if (progreso > 0.25) {
-                if (progreso <= 0.5) {
-                    // 2A. Sube para salir del sobre
-                    let p = (progreso - 0.25) / 0.25; 
-                    translateY = p * -170; // Sube 170px
-                    scale = 1 + (p * 0.1); 
-                } else {
-                    // 2B. El sobre desaparece y la carta REGRESA AL CENTRO (0px)
-                    let p = Math.min((progreso - 0.5) / 0.3, 1); 
-                    translateY = -170 + (p * 170); // Va de -170px a 0px
-                    scale = 1.1 + (p * (escalaMaxima - 1.1)); 
-                }
-                
-                carta.style.transform = `translateY(${translateY}px) scale(${scale})`;
-                carta.style.zIndex = progreso > 0.35 ? 10 : 2;
-            } else {
-                carta.style.transform = `translateY(0) scale(1)`;
-                carta.style.zIndex = 2;
-            }
-
-            // FASE 3: Desvanecer el sobre (50% al 70%)
-            if (progreso > 0.5) {
-                let progresoDesvanecer = Math.min((progreso - 0.5) / 0.2, 1);
-                partesFrontales.style.opacity = 1 - progresoDesvanecer;
-                solapa.style.opacity = 1 - progresoDesvanecer;
-                document.querySelector('.parte-trasera').style.opacity = 1 - progresoDesvanecer;
-            } else {
-                partesFrontales.style.opacity = 1;
-                solapa.style.opacity = 1;
-                document.querySelector('.parte-trasera').style.opacity = 1;
-            }
-
-            instruccion.style.opacity = Math.max(1 - (progreso * 10), 0);
-        });
-        // === CONTROL DE MÚSICA ===
-const musica = document.getElementById('musica-fondo');
-const btnMusica = document.getElementById('btn-musica');
-let interaccionUsuario = false;
-
-// Función para intentar reproducir la música
-const iniciarMusica = () => {
-    if (!interaccionUsuario) {
-        musica.play().then(() => {
-            // Si el navegador lo permite, cambiamos el botón
-            btnMusica.innerHTML = '⏸️ Pausar Música';
-            interaccionUsuario = true;
-            // Quitamos el evento de scroll para que no intente reproducir a cada rato
-            window.removeEventListener('scroll', iniciarMusica);
-        }).catch(error => {
-            // Si el navegador lo bloquea, no hacemos nada y esperamos a que le den clic al botón
-            console.log("Esperando interacción del usuario para reproducir audio.");
-        });
-    }
-};
-
-// Truco: Intentar reproducir en el primer scroll
-window.addEventListener('scroll', iniciarMusica, { once: true });
-
-// Control manual: Qué pasa cuando le dan clic al botón
-btnMusica.addEventListener('click', () => {
-    if (musica.paused) {
-        musica.play();
-        btnMusica.innerHTML = '⏸️ Pausar Música';
-        interaccionUsuario = true; // Confirmamos que ya interactuó
-    } else {
-        musica.pause();
-        btnMusica.innerHTML = '🎵 Reproducir Música';
-    }
-});
-    </script>
-</body>
-</html>
+    // Permitir buscar al presionar "Enter"
+    inputBusqueda.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            btnBuscar.click();
+        }
+    });
+</script>
+    </html>
