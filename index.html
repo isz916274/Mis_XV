@@ -38,10 +38,9 @@
     <div class="contenido-informativo">
         
         <div class="seccion padres">
-            <h3>Padres y Padrinos</h3>
-            <p><strong>Mis Padres:</strong><br>
-            Ariadna Contreras Reyes<br>
-            Fernando Jesús Hernández García</p>
+            <h3>Madre</h3>
+            <p><strong>Mi Madre:</strong><br>
+            Ariadna Contreras Reyes</p>
             
             <p class="texto-destacado"><strong>Mis Padrinos:</strong><br>
             Josafat Galán Balderas<br>
@@ -51,8 +50,8 @@
         <div class="seccion fecha">
             <h3>Cuándo y Dónde</h3>
             <p><strong>18 de Julio del 2026</strong></p>
-            <p>Misa: 06:30 PM - Capilla Santa Teresita del Niño Jesús <br> Recepción: 07:30 PM - [Escribe aquí la dirección del salón]</p> 
-            <a href="#" class="boton">Ver Mapa</a>
+            <p>Misa: 06:30 PM - Capilla Santa Teresita del Niño Jesús <br> Recepción: 07:30 PM - SANTA TERESITA SEGUNDA MANZANA DEL BARREAL AV. BARRANCA HONDA SN, 94533 Córdoba</p> 
+            <a href="https://maps.app.goo.gl/LUMuoSDqoRc2Dt898" class="boton">Ver Mapa</a>
         </div>
 
         <div class="seccion horarios">
@@ -111,9 +110,9 @@
 
     </body>
     <script src="script.js"></script>
-    <script>
-    // 1. Configura el número de teléfono donde recibirás las confirmaciones (con código de país, sin el signo +)
-    const numeroWhatsApp = "525500000000"; // Cambia esto por tu número
+  <script>
+    // 1. Configura el número de teléfono donde recibirás las confirmaciones
+    const numeroWhatsApp = "522711403418"; 
 
     // 2. Estructura de datos: Array de objetos con la información de los invitados
     const listaInvitados = [
@@ -151,9 +150,34 @@
         { nombre: "Uriel", mesa: 9, adultos: 1, ninos: 0, jovenes: 0 },
         { nombre: "Fernando Calixto", mesa: 9, adultos: 1, ninos: 0, jovenes: 0 },
         { nombre: "Poncho", mesa: 9, adultos: 1, ninos: 0, jovenes: 0 },
-        // Perico y Selene no tienen mesa asignada en la lista original, se definen como "Pendiente"
         { nombre: "Perico", mesa: "Pendiente", adultos: 2, ninos: 0, jovenes: 0 },
-        { nombre: "Selene", mesa: "Pendiente", adultos: 1, ninos: 0, jovenes: 0 }
+        { nombre: "Selene", mesa: "Pendiente", adultos: 1, ninos: 0, jovenes: 0 },
+        { nombre: "Maria Faustina Contreras", mesa: 11, adultos: 3, ninos: 2, jovenes: 0 },
+        { nombre: "Natividad Contreras", mesa: 1, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Ignacio Contreras", mesa: 1, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Analilia Contreras", mesa: 11, adultos: 2, ninos: 0, jovenes: 1 },
+        { nombre: "Alejandro Contreras", mesa: 11, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Fam. Mendez", mesa: 2, adultos: 4, ninos: 1, jovenes: 0 },
+        { nombre: "Fam. Almendra Sanchez", mesa: 7, adultos: 3, ninos: 1, jovenes: 0 },
+        { nombre: "Fam. Almendra Medina", mesa: 7, adultos: 3, ninos: 0, jovenes: 0 },
+        { nombre: "Fam. Sanchez Velazquez", mesa: 7, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Fam. Castro Almendra", mesa: 7, adultos: 1, ninos: 0, jovenes: 1 },
+        { nombre: "Fam. Andrade Renero", mesa: 2, adultos: 3, ninos: 1, jovenes: 0 },
+        { nombre: "Fam. Galan Vazquez", mesa: 12, adultos: 4, ninos: 1, jovenes: 1 },
+        { nombre: "Fam. Galan Bozziere", mesa: 12, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Nogueira Marinero", mesa: 5, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Medrano Contreras", mesa: 5, adultos: 4, ninos: 1, jovenes: 2 },
+        { nombre: "Reyes Nogueira", mesa: 8, adultos: 2, ninos: 1, jovenes: 0 },
+        { nombre: "Reyes Ubaldo", mesa: 8, adultos: 3, ninos: 0, jovenes: 2 },
+        { nombre: "Morales Ramos", mesa: 8, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Balderas Lezama", mesa: 4, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Contreras Ramirez", mesa: 4, adultos: 2, ninos: 1, jovenes: 0 },
+        { nombre: "Reyes Garcia", mesa: 4, adultos: 2, ninos: 0, jovenes: 1 },
+        { nombre: "Milagros", mesa: 4, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Araceli Carreño", mesa: 6, adultos: 3, ninos: 0, jovenes: 0 },
+        { nombre: "Carreño Sanchez", mesa: 6, adultos: 2, ninos: 0, jovenes: 0 },
+        { nombre: "Ana Carreño", mesa: 6, adultos: 3, ninos: 0, jovenes: 0 },
+        { nombre: "Alma Carreño", mesa: 6, adultos: 4, ninos: 0, jovenes: 0 }
     ];
 
     // Función para quitar acentos y pasar a minúsculas (mejora la búsqueda)
@@ -162,50 +186,61 @@
     };
 
     const inputBusqueda = document.getElementById('input-busqueda');
-    const btnBuscar = document.getElementById('btn-buscar');
     const divResultado = document.getElementById('resultado-busqueda');
 
-    btnBuscar.addEventListener('click', () => {
+    // Cambiamos el evento a 'input' para que evalúe en tiempo real al teclear
+    inputBusqueda.addEventListener('input', () => {
         const query = normalizarTexto(inputBusqueda.value);
-        divResultado.style.display = 'none'; // Ocultar resultados previos
+        divResultado.innerHTML = ''; // Limpiar resultados previos
         
-        if (query === "") return;
+        if (query === "") {
+            divResultado.style.display = 'none';
+            return;
+        }
 
-        // Buscar coincidencia exacta o parcial
-        const invitadoEncontrado = listaInvitados.find(inv => normalizarTexto(inv.nombre).includes(query));
+        // Usamos filter() para obtener TODAS las coincidencias parciales
+        const invitadosEncontrados = listaInvitados.filter(inv => normalizarTexto(inv.nombre).includes(query));
 
-        if (invitadoEncontrado) {
-            // Calcular total de pases sumando adultos, niños y jóvenes
-            const totalPases = invitadoEncontrado.adultos + invitadoEncontrado.ninos + invitadoEncontrado.jovenes;
-            
-            // Construir el mensaje para WhatsApp
-            const mensajeWa = `¡Hola! Confirmo mi asistencia a los XV de Rachell Alexia.%0A%0A*Nombre:* ${invitadoEncontrado.nombre}%0A*Pases Confirmados:* ${totalPases}%0A*Mesa:* ${invitadoEncontrado.mesa}`;
-            const linkWhatsapp = `https://wa.me/${numeroWhatsApp}?text=${mensajeWa}`;
+        if (invitadosEncontrados.length > 0) {
+            let htmlResultados = '';
 
-            // Inyectar el HTML en el contenedor de resultados
-            divResultado.innerHTML = `
-                <h4>¡Hola, ${invitadoEncontrado.nombre}!</h4>
-                <p>Nos hace muy felices contar con tu presencia.</p>
-                <p>Tienes <strong>${totalPases} pases</strong> asignados 
-                   <br><small>(${invitadoEncontrado.adultos} Adultos | ${invitadoEncontrado.ninos} Niños | ${invitadoEncontrado.jovenes} Jóvenes)</small>
-                </p>
-                <span class="mesa-destacada">Mesa #${invitadoEncontrado.mesa}</span>
-                <a href="${linkWhatsapp}" target="_blank" class="boton btn-whatsapp">📱 Confirmar Asistencia</a>
-            `;
+            // Recorremos todos los resultados y los agregamos al HTML
+            invitadosEncontrados.forEach(invitadoEncontrado => {
+                const totalPases = invitadoEncontrado.adultos + invitadoEncontrado.ninos + invitadoEncontrado.jovenes;
+                const mensajeWa = `¡Hola! Confirmo mi asistencia a los XV de Rachell Alexia.%0A%0A*Nombre:* ${invitadoEncontrado.nombre}%0A*Pases Confirmados:* ${totalPases}%0A*Mesa:* ${invitadoEncontrado.mesa}`;
+                const linkWhatsapp = `https://wa.me/${numeroWhatsApp}?text=${mensajeWa}`;
+
+                // Se envuelve cada resultado en un div para separarlos visualmente y mantener el diseño adaptable
+                htmlResultados += `
+                    <div class="ticket-individual" style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ccc; text-align: center;">
+                        <h4>¡Hola, ${invitadoEncontrado.nombre}!</h4>
+                        <p>Nos hace muy felices contar con tu presencia.</p>
+                        <p>Tienes <strong>${totalPases} pases</strong> asignados 
+                           <br><small>(${invitadoEncontrado.adultos} Adultos | ${invitadoEncontrado.ninos} Niños | ${invitadoEncontrado.jovenes} Jóvenes)</small>
+                        </p>
+                        <span class="mesa-destacada" style="display: block; margin: 10px 0;">Mesa #${invitadoEncontrado.mesa}</span>
+                        <a href="${linkWhatsapp}" target="_blank" class="boton btn-whatsapp" style="display: inline-block; width: 100%; box-sizing: border-box;">📱 Confirmar Asistencia</a>
+                    </div>
+                `;
+            });
+
+            divResultado.innerHTML = htmlResultados;
             divResultado.style.display = 'block';
         } else {
             divResultado.innerHTML = `
-                <p class="mensaje-error" style="display:block;">No encontramos tu nombre en la lista. Por favor, intenta escribiéndolo de forma diferente o contacta a la familia.</p>
+                <p class="mensaje-error" style="display:block; text-align: center;">No encontramos tu nombre en la lista. Por favor, intenta escribiéndolo de forma diferente o contacta a la familia.</p>
             `;
             divResultado.style.display = 'block';
         }
     });
 
-    // Permitir buscar al presionar "Enter"
-    inputBusqueda.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            btnBuscar.click();
-        }
-    });
+    // Como ahora la búsqueda es en tiempo real, el botón de buscar y la tecla "Enter" 
+    // ya no son estrictamente necesarios, pero podemos dejar que el botón enfoque el input
+    const btnBuscar = document.getElementById('btn-buscar');
+    if (btnBuscar) {
+        btnBuscar.addEventListener('click', () => {
+            inputBusqueda.focus();
+        });
+    }
 </script>
     </html>
