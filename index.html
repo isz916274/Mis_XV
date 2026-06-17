@@ -50,7 +50,7 @@
         <div class="seccion fecha">
             <h3>Cuándo y Dónde</h3>
             <p><strong>18 de Julio del 2026</strong></p>
-            <p>Misa: 06:30 PM - Capilla Santa Teresita del Niño Jesús <br> Recepción: 07:30 PM - SANTA TERESITA SEGUNDA MANZANA DEL BARREAL AV. BARRANCA HONDA SN, 94533 Córdoba</p> 
+            <p>Misa: 06:30 PM - Capilla Santa Teresita del Niño Jesús <br> Recepción: 07:30 PM - Finca Santa Lucia </p> 
             <a href="https://maps.app.goo.gl/LUMuoSDqoRc2Dt898" class="boton">Ver Mapa</a>
         </div>
 
@@ -82,7 +82,10 @@
         
         <div class="seccion regalos">
             <h3>Mesa de Regalos</h3>
-            <p>Tu presencia es mi mejor regalo, pero si deseas tener un detalle conmigo habrá Lluvia de Sobres.</p>
+            <p>Tu presencia es mi mejor regalo, pero si deseas tener un detalle conmigo, habrá Lluvia de Sobres (efectivo en el evento).</p>
+            
+
+            
         </div>
 
         <div class="seccion confirmacion-vip">
@@ -242,5 +245,44 @@
             inputBusqueda.focus();
         });
     }
+
+    // Funcionalidad para Lluvia de Sobres
+const btnMostrarDatos = document.getElementById('btn-mostrar-datos');
+const contenedorBancario = document.getElementById('contenedor-bancario');
+const btnCopiarCuenta = document.getElementById('btn-copiar-cuenta');
+const numeroCuenta = document.getElementById('numero-cuenta');
+const mensajeCopiado = document.getElementById('mensaje-copiado');
+
+// Mostrar/Ocultar el contenedor bancario
+if (btnMostrarDatos) {
+    btnMostrarDatos.addEventListener('click', () => {
+        if (contenedorBancario.style.display === 'none') {
+            contenedorBancario.style.display = 'block';
+            btnMostrarDatos.textContent = 'Ocultar Datos Bancarios ⬆️';
+        } else {
+            contenedorBancario.style.display = 'none';
+            btnMostrarDatos.textContent = 'Ver Datos Bancarios 🎁';
+            mensajeCopiado.style.display = 'none'; // Ocultar mensaje si se cierra
+        }
+    });
+}
+
+// Copiar al portapapeles
+if (btnCopiarCuenta) {
+    btnCopiarCuenta.addEventListener('click', () => {
+        // Usar la API del portapapeles
+        navigator.clipboard.writeText(numeroCuenta.textContent).then(() => {
+            mensajeCopiado.style.display = 'block';
+            
+            // Ocultar el mensaje de éxito después de 3 segundos
+            setTimeout(() => {
+                mensajeCopiado.style.display = 'none';
+            }, 3000);
+        }).catch(err => {
+            console.error('Error al copiar el texto: ', err);
+        });
+    });
+}
+
 </script>
     </html>

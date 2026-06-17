@@ -505,3 +505,37 @@ body {
     from { opacity: 0; transform: translateY(30px) scale(0.9); }
     to { opacity: 1; transform: translateY(0) scale(1); }
 }
+
+/* Estilos para la sección de Lluvia de Sobres */
+.datos-bancarios {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1); /* Ajusta según tu paleta */
+    border: 1px dashed #ffffff;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.boton-secundario {
+    background-color: transparent;
+    border: 2px solid #fff; /* Ajusta al color de tu texto */
+    color: #000000;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.boton-secundario:hover {
+    background-color: #fff;
+    color: #333; /* Color oscuro para el hover */
+}
+
+.mensaje-exito {
+    color: #4CAF50; /* Verde de éxito */
+    font-size: 0.9em;
+    margin-top: 10px;
+    font-weight: bold;
+}
